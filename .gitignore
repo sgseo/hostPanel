@@ -60,6 +60,9 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+<<<<<<< HEAD
 
 #config file
 config.php
+=======
+>>>>>>> 0a9011710b5b76db49271ea670afe5d1c95edc2f
