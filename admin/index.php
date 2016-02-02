@@ -11,7 +11,12 @@ if (isset($_GET['mod'])) {
 		echo "register is close!" ;
     }
     if ($_GET['mod']=='login'){
-        include 'login.php' ;
+    	if (isset($_SESSION['username'])){
+    		header("Location: ./?mod=manage");
+    	}
+    	else {
+    		include 'login.php' ;
+    	}
     }
     if ($_GET['mod']=='logout'){
         header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");

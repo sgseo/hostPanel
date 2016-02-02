@@ -2,11 +2,6 @@
 include '../config.php' ;
 
 if (!isset($_SESSION['username'])) {
-	/*
-	if($_SESSION['username'] != "" ){
-		echo $_SESSION['username'] ;
-	}
-	*/
 	header("Location: ./");
 	exit ;
 }
@@ -23,52 +18,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
 <div class="container">
-	<div class="row">
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/">Nbhao</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							国内主机
-						<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="https://zhangnq.taobao.com/category-1130370426.htm" target="_blank">主机代购</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							国外主机
-						<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="https://item.taobao.com/item.htm?id=522194007039" target="_blank">Linux代购</a></li>
-							<li><a href="https://item.taobao.com/item.htm?id=523205318200" target="_blank">DigitalOcean代购</a></li>
-							<li><a href="https://item.taobao.com/item.htm?id=525393879787" target="_blank">Vultr代购</a></li>
-						</ul>
-					</li>
-					<li><a target="_blank" href="/donate/"><span>赞助NB号</span></a></li>
-					<?php
-						include 'include/manage/navbar.php' ;
-					?>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							用户管理
-						<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="./?mod=logout">Logout</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</nav>
-	</div>
+	<?php include '../template/common/navbar.php' ; ?>
 	<div class="row">
 	<?php
 		if (isset($_GET['item'])) {

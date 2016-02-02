@@ -1,3 +1,4 @@
+<?php include 'config.php' ;?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -18,39 +19,7 @@
 </head>
 <body>
 <div class="container">
-	<div class="row">
-	<nav class="navbar navbar-default" role="navigation">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/">Nbhao</a>
-		</div>
-		<div>
-		<ul class="nav navbar-nav">
-			<!--<li><a target="_blank" href="https://my.nbhao.org/knowledgebase.php?action=displayarticle&id=5"><span>工具下载</span></a></li>-->
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				国内主机
-				<b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-					<li><a href="https://zhangnq.taobao.com/category-1130370426.htm" target="_blank">主机代购</a></li>
-				</ul>
-			</li>
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				国外主机
-				<b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-					<li><a href="https://item.taobao.com/item.htm?id=522194007039" target="_blank">Linux代购</a></li>
-					<li><a href="https://item.taobao.com/item.htm?id=523205318200" target="_blank">DigitalOcean代购</a></li>
-					<li><a href="https://item.taobao.com/item.htm?id=525393879787" target="_blank">Vultr代购</a></li>
-				</ul>
-			</li>
-			<li><a target="_blank" href="/donate/"><span>赞助NB号</span></a></li>
-		</ul>
-		</div>
-	</nav>
-	</div>
+	<?php include 'template/common/navbar.php' ; ?>
 </div>
 <div class="container">
 	<div class="row well">
