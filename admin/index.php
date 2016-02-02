@@ -1,16 +1,5 @@
 <?php
 include '../config.php' ;
-/**
-function dbconn($host,$user,$pwd,$db){
-    $conn=mysql_connect($host,$user,$pwd) or die ("数据库连接错误！") ;
-    mysql_select_db($db) or die("无此数据库！"); 
-    mysql_query("set names utf8;");
-}
-if(!dbconn(db_host,db_user,db_pw,db_name)){
-    //echo "数据库连接成功！<br />" ;
-}
-else{ echo "database connection error." ;exit ;}
-**/
 
 if (!isset($_GET['mod']) && !isset($_POST['action']) ) {
 	include 'login.php' ;
