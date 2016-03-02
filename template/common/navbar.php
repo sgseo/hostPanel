@@ -21,12 +21,12 @@
 						<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="https://item.taobao.com/item.htm?id=522194007039" target="_blank">Linux代购</a></li>
+							<li><a href="https://item.taobao.com/item.htm?id=522194007039" target="_blank">Linode代购</a></li>
 							<li><a href="https://item.taobao.com/item.htm?id=523205318200" target="_blank">DigitalOcean代购</a></li>
 							<li><a href="https://item.taobao.com/item.htm?id=525393879787" target="_blank">Vultr代购</a></li>
 						</ul>
 					</li>
-					<li><a target="_blank" href="/donate/"><span>赞助NB号</span></a></li>
+					<!-- <li><a target="_blank" href="/donate/"><span>赞助NB号</span></a></li> -->
 					<?php if (isset($_SESSION['username'])) { if (isset($_GET['mod'])) { ?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">

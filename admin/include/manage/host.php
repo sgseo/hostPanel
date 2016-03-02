@@ -15,13 +15,29 @@ if (isset($_GET['order'])) {
 	if ($_GET['order']=='list'){
 ?>
 				<div class="row">
+					<form method="GET" action="./?mod=manage&item=host&order=list">
+						<div class="col-md-2">
+							<input type="hidden" name="mod" value="manage">
+							<input type="hidden" name="item" value="host">
+							<input type="hidden" name="order" value="list">
+							<input type="text" class="form-control" name="keyword">
+						</div>
+						<div class="col-md-1">
+							<button class="btn btn-primary btn-block" type="submit">搜索</button>
+						</div>
+						<div class="col-md-9">
+							&nbsp;
+						</div>
+					</form>
+				</div>
+				<div class="row">
 					<div class="col-md-1">主机商</div>
 					<div class="col-md-1">主机名</div>
 					<div class="col-md-2">IP地址</div>
 					<div class="col-md-2">创建时间</div>
 					<div class="col-md-2">到期时间</div>
 					<div class="col-md-2">邮箱</div>
-					<div class="col-md-2">价格<br/>（元/月）</div>
+					<div class="col-md-2">价格（元/月）</div>
 				</div>
 <?php
 		if (isset($_GET['page'])) {
@@ -31,7 +47,36 @@ if (isset($_GET['order'])) {
 			$page=1 ;
 		}
 		$offset=($page-1)*10 ;
-		$sql='SELECT id,idc,hostname,ip,tm_create,tm_expire,email,price,wangwang FROM host_order ORDER BY id desc limit 10 offset '.$offset.'';
+		
+		#搜索词
+		if (isset($_GET['keyword'])){
+			$keyword=$_GET['keyword'] ;
+		}
+		else{
+			$keyword=False ;
+		}
+		
+		//统计
+		$sql_tongji='SELECT (SELECT COUNT(*) AS COUNT FROM host_order WHERE idc="digitalocean") AS do_cnt,
+				(SELECT COUNT(*) AS COUNT FROM host_order WHERE idc="vultr") AS vu_cnt,
+				(SELECT COUNT(*) AS COUNT FROM host_order WHERE idc="linode") AS li_cnt' ;
+		$stmt=mysqli_prepare($conn,$sql_tongji) ;
+		mysqli_stmt_execute($stmt);
+		mysqli_stmt_bind_result($stmt, $do_cnt,$vu_cnt,$li_cnt);
+		while (mysqli_stmt_fetch($stmt)) {
+				$do_cnt = $do_cnt ;
+				$vu_cnt = $vu_cnt ;
+				$li_cnt = $li_cnt ;
+		}
+		mysqli_stmt_close($stmt);
+		
+		#列表
+		if($keyword){
+			$sql='SELECT id,idc,hostname,ip,tm_create,tm_expire,email,price,wangwang FROM host_order where ip like "%'.$keyword.'%" ORDER BY id desc limit 10 offset '.$offset.'';
+		}
+		else{
+			$sql='SELECT id,idc,hostname,ip,tm_create,tm_expire,email,price,wangwang FROM host_order ORDER BY id desc limit 10 offset '.$offset.'';
+		}
 		if ($stmt = mysqli_prepare($conn, $sql)) {
 			mysqli_stmt_execute($stmt);
 			mysqli_stmt_bind_result($stmt, $id, $idc,$hostname,$ip,$tm_create,$tm_expire,$email,$price,$wangwang);
@@ -51,7 +96,10 @@ if (isset($_GET['order'])) {
 			}
 ?>
 				<div class="row">
-					<div class="col-md-6 text-right">
+					<div class="col-md-5 text-left">
+						&nbsp;
+					</div>
+					<div class="col-md-1 text-right">
 						<?php
 							if ($page == 1){
 						?>
@@ -59,19 +107,41 @@ if (isset($_GET['order'])) {
 						<?php
 							}
 							else{
+								if($keyword){
+						?>
+						<a href="?mod=manage&item=host&order=list&keyword=<?php echo $keyword ;?>&page=<?php echo ($page-1) ;?>">上一页</a>
+						<?php
+								}
+								else{
 						?>
 						<a href="?mod=manage&item=host&order=list&page=<?php echo ($page-1) ;?>">上一页</a>
 						<?php
+								}
 							}
 						?>
 					</div>
-					<div class="col-md-6 text-left">
+					<div class="col-md-1 text-left">
+						<?php 
+						if($keyword){
+						?>
+						<a href="?mod=manage&item=host&order=list&keyword=<?php echo $keyword ;?>&page=<?php echo ($page+1) ;?>">下一页</a>
+						<?php
+						}
+						else{
+						?>
 						<a href="?mod=manage&item=host&order=list&page=<?php echo ($page+1) ;?>">下一页</a>
+						<?php
+						}
+						?>
+					</div>
+					<div class="col-md-5 text-right">
+						本地统计：Linode：<?php echo $li_cnt ;?>、DigitalOcean：<?php echo $do_cnt ;?>、Vultr：<?php echo $vu_cnt ;?>
 					</div>
 				</div>
 <?php
 			mysqli_stmt_close($stmt);
 		}
+		
 	}
 
 	//add
