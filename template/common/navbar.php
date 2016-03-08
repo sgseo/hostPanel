@@ -27,6 +27,7 @@
 						</ul>
 					</li>
 					<!-- <li><a target="_blank" href="/donate/"><span>赞助NB号</span></a></li> -->
+					<!-- admin -->
 					<?php if (isset($_SESSION['username'])) { if (isset($_GET['mod'])) { ?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -70,7 +71,32 @@
 						</ul>
 					</li>
 					<?php } } ?>
+					
+					<!-- manager -->
+					<?php if (isset($_SESSION['email'])) { if (isset($_GET['mod'])) { ?>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							服务器列表
+						<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="./?mod=server&item=vultr&order=list">Vultr</a></li>
+						</ul>
+					</li>
+					<?php } else { ?>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							服务器列表
+						<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="./manager/?mod=server&item=vultr&order=list">Vultr</a></li>
+						</ul>
+					</li>
+					<?php } } ?>
+					
 				</ul>
+				<?php if (!isset($_SESSION['username'])){ ?>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -79,12 +105,12 @@
 						</a>
 						<ul class="dropdown-menu">
 							<?php 
-							if (isset($_SESSION['username'])) {
+							if (isset($_SESSION['email'])) {
 								if (isset($_GET['mod'])){
 									echo "<li><a href=\"./?mod=logout\">Logout</a></li>" ;
 								}
 								else{
-									echo "<li><a href=\"./admin/?mod=logout\">Logout</a></li>" ;
+									echo "<li><a href=\"./manager/?mod=logout\">Logout</a></li>" ;
 								}
 							}
 							else{
@@ -92,13 +118,14 @@
 									echo "<li><a href=\"./?mod=login\">Login</a></li>" ;
 								}
 								else{
-									echo "<li><a href=\"./admin/?mod=login\">Login</a></li>" ;
+									echo "<li><a href=\"./manager/?mod=login\">Login</a></li>" ;
 								}
 							}
 							?>
 						</ul>
 					</li>
 				</ul>
+				<?php } ?>
 			</div>
 		</nav>
 	</div>

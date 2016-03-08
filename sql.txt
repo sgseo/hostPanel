@@ -16,3 +16,21 @@ CREATE TABLE `host_order` (
   UNIQUE KEY `ip_uniq` (`ip`)
 ) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 ;
 
+
+CREATE TABLE `host_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sid` int(11) NOT NULL,
+  `os` varchar(50),
+  `ram` varchar(50),
+  `disk` varchar(50),
+  `vcpu_count` int(5) DEFAULT '0',
+  `location` varchar(50),
+  `current_bandwidth_gb` varchar(50),
+  `allowed_bandwidth_gb` varchar(50),
+  `status` varchar(50),
+  `vnc_url` varchar(1000),
+  `tm_create` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 ;
+
+
