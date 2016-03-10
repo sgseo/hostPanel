@@ -1,9 +1,15 @@
 <?php
 include '../config.php' ;
-
 if (!isset($_SESSION['email'])) {
 	header("Location: ./");
 	exit ;
+}
+//action return message
+if (isset($_GET['item'])) {
+	if (isset($_GET['action'])) {
+		include 'include/server/servers.php' ;
+		exit ;
+	}
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -25,12 +31,86 @@ if (!isset($_SESSION['email'])) {
 			if ($_GET['item']=='vultr'){
 				include 'include/server/servers.php' ;
 			}
+			else if ($_GET['item']=='linode'){
+				include 'include/server/servers.php' ;
+			}
+			else if ($_GET['item']=='digitalocean'){
+				include 'include/server/servers.php' ;
+			}
+			else{
+				echo "Invalid item." ;
+			}
 		}
 	?>
 	</div>
 </div>
 
 <script src="../static/jquery.min.js"></script>
+<script src="../static/jquery.confirm.min.js"></script>
 <script src="../static/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+function rebootServer(idc,seq){
+	$.ajax({
+		type:'POST',
+		url:'./?mod=server&item='+idc+'&action=reboot',
+		data: $('#serverReboot'+seq).serialize(),
+		success:function(data){
+			alert (data) ;
+			window.location.reload();
+		},
+		error:function(){
+			alert ('System Error!') ;
+		}
+	}) ;
+}
+
+$("#rebootConfirm1").confirm({
+    	title:"确定重启？",
+    	text:"强制重启服务器可能会损坏系统文件，请谨慎操作！",
+    	confirm: function(button){
+			rebootServer('<?php echo $_GET['item'] ;?>','1') ;
+    	},
+    	confirmButton: "是的，我确定",
+    	cancelButton: "不了"
+});
+$("#rebootConfirm2").confirm({
+	title:"确定重启？",
+	text:"强制重启服务器可能会损坏系统文件，请谨慎操作！",
+	confirm: function(button){
+		rebootServer('<?php echo $_GET['item'] ;?>','2') ;
+	},
+	confirmButton: "是的，我确定",
+	cancelButton: "不了"
+});
+$("#rebootConfirm3").confirm({
+	title:"确定重启？",
+	text:"强制重启服务器可能会损坏系统文件，请谨慎操作！",
+	confirm: function(button){
+		rebootServer('<?php echo $_GET['item'] ;?>','3') ;
+	},
+	confirmButton: "是的，我确定",
+	cancelButton: "不了"
+});
+$("#rebootConfirm4").confirm({
+	title:"确定重启？",
+	text:"强制重启服务器可能会损坏系统文件，请谨慎操作！",
+	confirm: function(button){
+		rebootServer('<?php echo $_GET['item'] ;?>','4') ;
+	},
+	confirmButton: "是的，我确定",
+	cancelButton: "不了"
+});
+$("#rebootConfirm5").confirm({
+	title:"确定重启？",
+	text:"强制重启服务器可能会损坏系统文件，请谨慎操作！",
+	confirm: function(button){
+		rebootServer('<?php echo $_GET['item'] ;?>','5') ;
+	},
+	confirmButton: "是的，我确定",
+	cancelButton: "不了"
+});
+
+</script>
 </body>
 </html>
