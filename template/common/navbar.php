@@ -24,6 +24,7 @@
 							<li><a href="https://item.taobao.com/item.htm?id=522194007039" target="_blank">Linode代购</a></li>
 							<li><a href="https://item.taobao.com/item.htm?id=523205318200" target="_blank">DigitalOcean代购</a></li>
 							<li><a href="https://item.taobao.com/item.htm?id=525393879787" target="_blank">Vultr代购</a></li>
+							<li><a href="https://item.taobao.com/item.htm?id=531105493974" target="_blank">ConoHa代购</a></li>
 						</ul>
 					</li>
 					<!-- <li><a target="_blank" href="/donate/"><span>赞助NB号</span></a></li> -->
