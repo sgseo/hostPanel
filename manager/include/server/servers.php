@@ -86,7 +86,9 @@ if (isset($_GET['order'])) {
 							<input type="hidden" name="id" value="<?php echo $id ;?>">
 							<input type="hidden" name="ip" value="<?php echo $ip ;?>">
 							<button type="submit" class="btn btn-primary" id="rebootConfirm<?php echo $i ;?>">重启</button>
+							<?php if (strlen($vnc_url) != 0) { ?>
 							<a href="<?php echo $vnc_url?>" target="_blank"><button type="button" class="btn btn-primary">VNC</button></a>
+							<?php } ?>
 						</form>
 					</div>
 					<div class="col-md-2">
@@ -199,9 +201,17 @@ if (isset($_GET['order'])) {
 						<div class="col-md-1">机房</div>
 						<div class="col-md-2"><?php echo $location ;?></div>
 						<div class="col-md-1">当前流量</div>
+						<?php if (strlen($current_bandwidth_gb) != 0) {?>
 						<div class="col-md-2"><?php echo $current_bandwidth_gb ;?> GB/月</div>
+						<?php } else {?>
+						<div class="col-md-2">Null</div>
+						<?php } ?>
 						<div class="col-md-1">总流量</div>
+						<?php if (strlen($allowed_bandwidth_gb) != 0) {?>
 						<div class="col-md-2"><?php echo $allowed_bandwidth_gb ;?> GB/月</div>
+						<?php } else {?>
+						<div class="col-md-2">Null</div>
+						<?php } ?>
 					</div>
 					<div class="row">
 						<div class="col-md-1">更新时间</div>

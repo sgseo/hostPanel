@@ -82,6 +82,7 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="./?mod=server&item=vultr&order=list">Vultr</a></li>
+							<li><a href="./?mod=server&item=digitalocean&order=list">DigitalOcean</a></li>
 						</ul>
 					</li>
 					<?php } else { ?>
