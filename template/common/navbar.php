@@ -27,6 +27,9 @@
 							<li><a href="https://item.taobao.com/item.htm?id=531105493974" target="_blank">ConoHa代购</a></li>
 						</ul>
 					</li>
+					<li>
+						<a href="http://bbs.nbhao.info/" target="_blank">交流论坛</a>
+					</li>
 					<!-- <li><a target="_blank" href="/donate/"><span>赞助NB号</span></a></li> -->
 					<!-- admin -->
 					<?php if (isset($_SESSION['username'])) { if (isset($_GET['mod'])) { ?>
@@ -81,6 +84,7 @@
 						<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
+							<li><a href="./?mod=server&item=linode&order=list">Linode</a></li>
 							<li><a href="./?mod=server&item=vultr&order=list">Vultr</a></li>
 							<li><a href="./?mod=server&item=digitalocean&order=list">DigitalOcean</a></li>
 						</ul>
