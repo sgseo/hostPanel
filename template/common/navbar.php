@@ -24,11 +24,10 @@
 							<li><a href="https://item.taobao.com/item.htm?id=522194007039" target="_blank">Linode代购</a></li>
 							<li><a href="https://item.taobao.com/item.htm?id=523205318200" target="_blank">DigitalOcean代购</a></li>
 							<li><a href="https://item.taobao.com/item.htm?id=525393879787" target="_blank">Vultr代购</a></li>
-							<li><a href="https://item.taobao.com/item.htm?id=531105493974" target="_blank">ConoHa代购</a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="http://bbs.nbhao.info/" target="_blank">交流论坛</a>
+						<a href="http://bbs.sijitao.net/" target="_blank">交流论坛</a>
 					</li>
 					<!-- <li><a target="_blank" href="/donate/"><span>赞助NB号</span></a></li> -->
 					<!-- admin -->
@@ -102,6 +101,8 @@
 					<?php } } ?>
 					
 				</ul>
+				
+				<!-- user login and logout -->
 				<?php if (!isset($_SESSION['username'])){ ?>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
@@ -128,6 +129,18 @@
 								}
 							}
 							?>
+						</ul>
+					</li>
+				</ul>
+				<?php } else { ?>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							用户管理
+						<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="./?mod=logout">Logout</a></li>
 						</ul>
 					</li>
 				</ul>

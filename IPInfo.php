@@ -178,7 +178,7 @@ if($idc && $ip){
 		else{
 			while($row=mysql_fetch_array($res,MYSQL_ASSOC)){
 ?>
-        <form name=alipayment action=renewapi.php method=post target="_blank">
+        <form name=alipayment action="alipay.php" method=post target="_blank">
             <div id="body" style="clear:left">
                 <dl class="content">
                     <dt>IDC服务商：</dt>

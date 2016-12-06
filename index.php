@@ -42,7 +42,6 @@
 							<option value="linode" selected="selected">Linode</option>
 							<option value="digitalocean">DigitalOcean</option>
 							<option value="vultr">Vultr</option>
-							<option value="conoha">ConoHa</option>
 						</select>
 					</div>
 				</div>
