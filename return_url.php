@@ -53,7 +53,7 @@ if($result){
     }
 
 
-    $url = 'http://'.$_SERVER['HTTP_HOST'].'/';
+    $url = 'http://'.$_SERVER['HTTP_HOST'].'/host/';
     echo "<script language='javascript' type='text/javascript'>";
     echo "window.location.href='$url'";
     echo "</script>";
