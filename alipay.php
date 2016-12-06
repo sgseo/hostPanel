@@ -17,7 +17,7 @@ $tm_create=$_POST['tm_create'];
 $tm_expire=$_POST['tm_expire'];
 $quantity=$_POST['quantity'];
 $tm_expire_next=date("Y-m-d H:i:s",strtotime("+$quantity month",strtotime($tm_expire))) ;
-$update="update host_order set order_id='$order_id',renew_quantity='$quantity' where ip='$ip'" ;
+$update="update host_order set order_id='$order_id',renew_quantity='$quantity',pay_method=0 where ip='$ip'" ;
 $res=mysql_query($update) ;
 
 
