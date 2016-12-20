@@ -45,3 +45,40 @@ CREATE TABLE `host_task` (
   `tm_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 ;
+
+
+CREATE TABLE `host_trial` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hostname` varchar(50) DEFAULT NULL,
+  `ip` varchar(50) DEFAULT NULL,
+  `tm_create` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `tm_expire` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `order_id` varchar(20) DEFAULT NULL,
+  `trade_no` varchar(50) DEFAULT NULL,
+  `trade_status` int(1) DEFAULT '0',
+  `price` int(10) DEFAULT '0',
+  `dcid` int(11) DEFAULT '0',
+  `planid` int(11) DEFAULT '0',
+  `osid` int(11) DEFAULT '0',
+  `snapshotid` varchar(50) DEFAULT NULL,
+  `default_password` varchar(50) DEFAULT NULL,
+  `vnc_url` varchar(1000) DEFAULT NULL,
+  `ipv6` varchar(50) DEFAULT NULL,
+  `is_active` int(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ;
+
+
+CREATE TABLE `host_trialtask` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sid` int(11) DEFAULT '0',
+  `task_name` varchar(15) DEFAULT NULL,
+  `status` int(1) DEFAULT '0',
+  `tm_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `dcid` int(11) DEFAULT '0',
+  `planid` int(11) DEFAULT '0',
+  `osid` int(11) DEFAULT '0',
+  `snapshotid` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ;
+
