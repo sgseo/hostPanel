@@ -1,8 +1,7 @@
-	
 	<div class="row">
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/">Nbhao</a>
+				<a class="navbar-brand" href="/<?php echo $page_name;?>/">Nbhao</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
@@ -12,7 +11,7 @@
 						<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="https://zhangnq.taobao.com/category-1130370426.htm" target="_blank">主机代购</a></li>
+							<li><a href="https://shop199016211.taobao.com/" target="_blank">主机代购</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -21,10 +20,13 @@
 						<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="https://item.taobao.com/item.htm?id=522194007039" target="_blank">Linode代购</a></li>
-							<li><a href="https://item.taobao.com/item.htm?id=523205318200" target="_blank">DigitalOcean代购</a></li>
-							<li><a href="https://item.taobao.com/item.htm?id=525393879787" target="_blank">Vultr代购</a></li>
+							<li><a href="https://item.taobao.com/item.htm?id=543485922111" target="_blank">Linode代购</a></li>
+							<li><a href="https://item.taobao.com/item.htm?id=543451376093" target="_blank">DigitalOcean代购</a></li>
+							<li><a href="https://item.taobao.com/item.htm?id=543477365920" target="_blank">Vultr代购</a></li>
 						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="/<?php echo $page_name;?>/trial/">试用VPS</a>
 					</li>
 					<li>
 						<a href="http://bbs.sijitao.net/" target="_blank">交流论坛</a>
@@ -76,34 +78,25 @@
 					<?php } } ?>
 					
 					<!-- manager -->
-					<?php if (isset($_SESSION['email'])) { if (isset($_GET['mod'])) { ?>
+					<?php if (isset($_SESSION['email'])) { ?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							服务器列表
 						<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="./?mod=server&item=linode&order=list">Linode</a></li>
-							<li><a href="./?mod=server&item=vultr&order=list">Vultr</a></li>
-							<li><a href="./?mod=server&item=digitalocean&order=list">DigitalOcean</a></li>
+							<li><a href="/<?php echo $page_name; ?>/manager/?mod=server&item=linode&order=list">Linode</a></li>
+							<li><a href="/<?php echo $page_name; ?>/manager/?mod=server&item=vultr&order=list">Vultr</a></li>
+							<li><a href="/<?php echo $page_name; ?>/manager/?mod=server&item=digitalocean&order=list">DigitalOcean</a></li>
 						</ul>
 					</li>
-					<?php } else { ?>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							服务器列表
-						<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="./manager/?mod=server&item=vultr&order=list">Vultr</a></li>
-						</ul>
-					</li>
-					<?php } } ?>
+					<?php } ?>
 					
 				</ul>
 				
 				<!-- user login and logout -->
 				<?php if (!isset($_SESSION['username'])){ ?>
+				
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -113,20 +106,10 @@
 						<ul class="dropdown-menu">
 							<?php 
 							if (isset($_SESSION['email'])) {
-								if (isset($_GET['mod'])){
-									echo "<li><a href=\"./?mod=logout\">Logout</a></li>" ;
-								}
-								else{
-									echo "<li><a href=\"./manager/?mod=logout\">Logout</a></li>" ;
-								}
+								echo "<li><a href=\"/".$page_name."/manager/?mod=logout\">Logout</a></li>" ;
 							}
 							else{
-								if (isset($_GET['mod'])){
-									echo "<li><a href=\"./?mod=login\">Login</a></li>" ;
-								}
-								else{
-									echo "<li><a href=\"./manager/?mod=login\">Login</a></li>" ;
-								}
+								echo "<li><a href=\"/".$page_name."/manager/?mod=login\">Login</a></li>" ;
 							}
 							?>
 						</ul>
@@ -140,7 +123,7 @@
 						<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="./?mod=logout">Logout</a></li>
+							<li><a href="/<?php echo $page_name; ?>/admin/?mod=logout">Logout</a></li>
 						</ul>
 					</li>
 				</ul>

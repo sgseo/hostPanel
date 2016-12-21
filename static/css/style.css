@@ -23,7 +23,7 @@ input, select, textarea {
 }
 
 a {
-    color: #65CEA7;
+    /*color: #65CEA7;*/
 }
 
 a:focus, a:active, a:hover {
@@ -970,7 +970,14 @@ h5.left-nav-title {
     background: #b6b7ba;
 }
 
+/*
 .boxed-view .container {
+    position: relative;
+    background: #424f63;
+    padding: 0;
+}
+*/
+.boxed-view {
     position: relative;
     background: #424f63;
     padding: 0;
@@ -993,6 +1000,7 @@ h5.left-nav-title {
     min-height: 50px;
 }
 
+/*
 .horizontal-menu-page .navbar-default {
     background: #424F63;
     border: none;
@@ -1015,6 +1023,7 @@ h5.left-nav-title {
     color: #FFFFFF;
     font-size: 13px;
 }
+*/
 
 .horizontal-menu-page .form-control {
     box-shadow: none;
@@ -1119,11 +1128,13 @@ footer.sticky-footer {
     z-index: 99;
 }
 
+/*
 .container footer {
     width: 79.5%;
     position: absolute;
     bottom: 0;
 }
+*/
 
 
 
