@@ -22,8 +22,8 @@ if (!isset($_SESSION['username'])) {
 	<div class="row">
 	<?php
 		if (isset($_GET['item'])) {
-			if ($_GET['item']=='ssh'){
-				include 'include/manage/ssh.php' ;
+			if ($_GET['item']=='trial'){
+				include 'include/manage/trial.php' ;
 			}
 			if ($_GET['item']=='host'){
 				include 'include/manage/host.php' ;

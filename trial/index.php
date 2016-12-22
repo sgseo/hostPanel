@@ -6,9 +6,13 @@ if (!isset($_GET['mod']) && !isset($_POST['action']) ) {
 }
 
 //mod
-if (isset($_GET['mod'])) {
+if (isset($_GET['mod']) && !isset($_POST['action']) ) {
 	//order
 	if ($_GET['mod']=='order' && isset($_GET['name']) && isset($_GET['plan'])  && isset($_GET['price'])){
+		include 'form.php' ;
+	}
+	//trade
+	else if($_GET['mod']=='trade'){
 		include 'form.php' ;
 	}
 	else{
@@ -64,6 +68,9 @@ if (isset($_POST['action'])) {
 		));
 		// 输出 HTML 到浏览器，JS 会自动发起提交
 		echo $body;
+	}
+	else if($_POST['action']=='trade' && isset($_GET['mod']) ){
+		include 'form.php' ;
 	}
 	else{
 		echo "error";

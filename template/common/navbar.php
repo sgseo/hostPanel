@@ -33,15 +33,15 @@
 					</li>
 					<!-- <li><a target="_blank" href="/donate/"><span>赞助NB号</span></a></li> -->
 					<!-- admin -->
-					<?php if (isset($_SESSION['username'])) { if (isset($_GET['mod'])) { ?>
+					<?php if (isset($_SESSION['username'])) { ?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							SSH代理
+							主机试用
 						<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="./?mod=manage&item=ssh&order=list">账号列表</a></li>
-							<li><a href="./?mod=manage&item=ssh&order=add">添加账号</a></li>
+							<li><a href="/<?php echo $page_name; ?>/admin/?mod=manage&item=trial&order=list">试用列表</a></li>
+							<li><a href="/<?php echo $page_name; ?>/admin/?mod=manage&item=trial&order=add">添加订单</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -50,32 +50,11 @@
 						<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="./?mod=manage&item=host&order=list">主机列表</a></li>
-							<li><a href="./?mod=manage&item=host&order=add">添加主机</a></li>
+							<li><a href="/<?php echo $page_name; ?>/admin/?mod=manage&item=host&order=list">主机列表</a></li>
+							<li><a href="/<?php echo $page_name; ?>/admin/?mod=manage&item=host&order=add">添加主机</a></li>
 						</ul>
 					</li>
-					<?php } else { ?>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							SSH代理
-						<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="./admin/?mod=manage&item=ssh&order=list">账号列表</a></li>
-							<li><a href="./admin/?mod=manage&item=ssh&order=add">添加账号</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							主机代购
-						<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="./admin/?mod=manage&item=host&order=list">主机列表</a></li>
-							<li><a href="./admin/?mod=manage&item=host&order=add">添加主机</a></li>
-						</ul>
-					</li>
-					<?php } } ?>
+					<?php } ?>
 					
 					<!-- manager -->
 					<?php if (isset($_SESSION['email'])) { ?>

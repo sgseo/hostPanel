@@ -90,8 +90,12 @@
                         </div>
                     </div>
                     
-                    <div class="row text-center" style="margin-top:20px;">
-                        <div class="col-lg-12 col-sm-12"></div>
+                    <div class="row text-center" style="padding-top:20px;">
+                    	<div class="row"></div>
+                    	<h2>已经购买的请直接点击下面按钮获取！</h2>
+                        <div class="col-lg-12 col-sm-12">
+                        	<a href="./?mod=trade"><botton class="btn btn-primary">获取主机</botton></a>
+                        </div>
                     </div>
                     <!--price end-->
                     
@@ -144,6 +148,46 @@
                     <div class="col-lg-4 col-sm-4"></div>
                     
                     <!--preorder end-->
+                    
+                    <?php } else if($_GET['mod']=='trade'){ ?>
+                    <!-- trade info start -->
+                    <div class="text-center price-head">
+                        <h1 class="color-terques">请输入您支付宝的交易流水号</h1>
+                        <p>支付宝交易流水号可以通过登录自己账号查看，一般在订单详情里可以找到，例如：</p>
+                        <p><img style="max-width: 100%;height: auto;" alt="alipay trade no" src="../static/images/alipay-trade-number.jpg" ></p>
+                    </div>
+                    <div class="col-lg-3 col-sm-3"></div>
+                    <div class="col-lg-6 col-sm-6">
+                    	<form action="" method="post">
+                    		<input type="hidden" name="action" value="trade" />
+                    		<label class="col-lg-2 col-sm-2">单号</label>
+                    		<div class="col-lg-10 col-sm-10">
+	                        	<input type="number" name="trade_no" class="form-control" 
+	                        	<?php if(isset($_POST['action'])) { ?>
+	                        		value="<?php echo $_POST['trade_no'] ;?>"
+	                        	<?php }?>
+	                        	>
+	                        </div>
+	                        
+	                        <label class="col-lg-2 col-sm-2"></label>
+	                        <div class="col-lg-10 col-sm-10">
+	                        	<button class="btn btn-sm btn-primary" type="submit">点击获取</button>
+	                        </div>
+                    	</form>
+                    </div>
+                    <div class="col-lg-3 col-sm-3"></div>
+                    <div class="row col-lg-12 col-sm-12>
+                    	<div class="col-sm-12">
+                    	<!-- trade info action start -->
+	                    <?php if(isset($_POST['action'])) {
+	                    	if ($_POST['action'] == 'trade') { 
+	                    		include 'list.php';
+	                    	}
+	                    }?>
+	                    <!-- trade info action end -->
+	                    </div>
+	                </div>
+                    <!-- trade info end -->
                     
                     <?php } } ?>
                 </div>
