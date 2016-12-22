@@ -13,7 +13,7 @@ if(isset($_POST['action'])){
 <div class="wrapper">
 	<section class="panel">
 		<header class="panel-heading">
-			服务器列表（<?php echo $trade_no ;?>）
+			服务器列表（流水：<?php echo $trade_no ;?>，Linux默认用户名：root，Windows默认用户名：administrator，密码：WWW.nbhao.org 。）
 			<span class="tools pull-right"></span>
 		</header>
 		<div class="panel-body">
