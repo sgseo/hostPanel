@@ -196,6 +196,10 @@
 
 <?php include '../template/common/footer.php' ; ?>
 
+<?php if (isset($_GET['mod']) ) {
+	if ($_GET['mod']=='order'){
+?>
+
 <script type="text/javascript">
 
 function getOSDistribution(){
@@ -260,6 +264,11 @@ function getOrderPrice(){
 
 getOSDistribution();
 </script>
+
+<?php
+	}
+}
+?>
 
 </body>
 </html>
