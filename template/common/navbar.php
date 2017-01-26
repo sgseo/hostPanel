@@ -29,7 +29,7 @@
 						<a href="/<?php echo $page_name;?>/trial/">试用VPS</a>
 					</li>
 					<li>
-						<a href="http://bbs.sijitao.net/" target="_blank">交流论坛</a>
+						<a href="http://bbs.nbqykj.cn/" target="_blank">交流论坛</a>
 					</li>
 					<!-- <li><a target="_blank" href="/donate/"><span>赞助NB号</span></a></li> -->
 					<!-- admin -->
